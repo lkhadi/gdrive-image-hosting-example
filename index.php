@@ -18,6 +18,6 @@ if($client->isAccessTokenExpired()){ //if expired get the new one with the refre
 	$new_token = $client->refreshToken($oauth['refresh_token']);
 }
 $service = new Google_Service_Drive($client);
-$content = $service->files->get(FILE_ID, array('alt' => 'media' ));
+$content = $service->files->get(FILE_ID, array('alt' => 'media' ));//get the image from gdrive using file id
 echo '<img src="data:image/jpeg;base64,'.base64_encode($content->getBody()->getContents()).'">';
 ?>
